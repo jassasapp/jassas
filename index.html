@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جساس - طلب تحقق</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+      direction: rtl;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #1d4ed8;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background-color: #1d4ed8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .thank-you {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background: #e0f2fe;
+      margin-top: 20px;
+      border-radius: 8px;
+      color: #0c4a6e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>طلب تحقق من بائع</h2>
+    <form id="verifyForm">
+      <label>الاسم (اختياري)</label>
+      <input type="text" name="name">
+
+      <label>رقم الجوال</label>
+      <input type="tel" name="phone" required>
+
+      <label>رابط الإعلان</label>
+      <input type="url" name="link" required>
+
+      <label>المدينة / الموقع</label>
+      <input type="text" name="location">
+
+      <label>ملاحظات إضافية</label>
+      <textarea name="notes" rows="3"></textarea>
+
+      <button type="submit">إرسال الطلب</button>
+    </form>
+    <div class="thank-you" id="thankYou">
+      ✅ تم استلام طلبك بنجاح<br>
+      سيتواصل معك كابتن جساس قريبًا.<br><br>
+      🤖 Gpter: شكرًا لاستخدامك جساس.
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('verifyForm');
+    const thankYou = document.getElementById('thankYou');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      form.style.display = 'none';
+      thankYou.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
